@@ -97,7 +97,7 @@ const Cart = () => {
 
                         <div className="col-lg-3 col-md-12">
                           <img
-                            src={item.image}
+                            src={item.imageUrl || item.image}
                             alt={item.title}
                             width={100}
                             height={75}
@@ -177,7 +177,7 @@ const Cart = () => {
 
                   <button
                     className="btn btn-dark w-100 mt-2"
-                    onClick={() => alert("Checkout flow can be implemented here")}
+                    onClick={() => navigate("/checkout")}
                   >
                     Proceed to Checkout
                   </button>

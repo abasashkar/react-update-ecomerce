@@ -6,6 +6,7 @@ const AdminDashboard = () => {
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState("");
   const [imageUrl, setImageUrl] = useState("");
+  const [category, setCategory] = useState("");
   const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
@@ -40,6 +41,7 @@ const AdminDashboard = () => {
           title,
           price: Number(price),
           imageUrl,
+          category,
           adminId: admin?._id,
         }),
       });
@@ -51,6 +53,7 @@ const AdminDashboard = () => {
         setTitle("");
         setPrice("");
         setImageUrl("");
+        setCategory("");
       } else {
         alert(data.message || "Failed to add product");
       }
@@ -94,6 +97,19 @@ const AdminDashboard = () => {
           value={imageUrl}
           onChange={(e) => setImageUrl(e.target.value)}
         />
+
+        <select
+          className="form-select my-2"
+          value={category}
+          onChange={(e) => setCategory(e.target.value)}
+          required
+        >
+          <option value="">Select Category</option>
+          <option value="men's clothing">Men's Clothing</option>
+          <option value="women's clothing">Women's Clothing</option>
+          <option value="jewelery">Jewelery</option>
+          <option value="electronics">Electronics</option>
+        </select>
 
         <div className="d-flex align-items-center mt-3">
           <button className="btn btn-success me-2" disabled={loading}>
